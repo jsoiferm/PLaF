@@ -1,0 +1,52 @@
+# dune utop
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /home/jsoiferm/.cache/dune/db
+# Workspace root: /home/jsoiferm/496/PLaF/src/arith
+# Auto-detected concurrency: 8
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; installed_env =
+#      map
+#        { "INSIDE_DUNE" : "/home/jsoiferm/496/PLaF/src/arith/_build/default"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; instrument_with = []
+#  }
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_07142d_output
+$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl lib/interp.ml) > _build/default/lib/.arith.objs/arith__Interp.impl.d
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I lib/.arith.objs/byte -I /home/jsoiferm/.opam/default/lib/menhirLib -I /home/jsoiferm/.opam/default/lib/parser_plaf -no-alias-deps -opaque -open Arith -o lib/.arith.objs/byte/arith__Interp.cmo -c -impl lib/interp.ml)
+> File "lib/interp.ml", lines 8-34, characters 2-20:
+>  8 | ..match e with
+>  9 |   | Int n      -> return n
+> 10 |   | Add(e1,e2) ->
+> 11 |     eval_expr e1 >>= fun n ->
+> 12 |     eval_expr e2 >>= fun m ->
+> ...
+> 31 |   | Min(e1,e2) ->
+> 32 |     eval_expr e1 >>= fun n ->
+> 33 |     eval_expr e2 >>= fun m ->
+> 34 |     return (min n m)
+> Warning 8 [partial-match]: this pattern-matching is not exhaustive.
+> Here is an example of a case that is not matched:
+> (Unit|Self|Var _|Sum _|Prod _|Avg _|Maxl _|Let (_, _, _)|IsZero _|IsNumber _|
+> ITE (_, _, _)|Proc (_, _, _)|App (_, _)|Letrec (_, _)|Set (_, _)|NewRef _|
+> DeRef _|SetRef (_, _)|BeginEnd _|Fst _|Snd _|Tuple _|Untuple (_, _, _)|
+> Pair (_, _)|Unpair (_, _, _, _)|EmptyTree _|Node (_, _, _)|
+> CaseT (_, _, _, _, _, _)|Record _|Proj (_, _)|SetField (_, _, _)|
+> IsEqual (_, _)|IsGT (_, _)|IsLT (_, _)|Send (_, _, _)|Super (_, _)|
+> NewObject (_, _)|EmptyList _|Cons (_, _)|Hd _|Tl _|IsEmpty _|List _|
+> IsInstanceOf (_, _)|Cast (_, _)|SetExt _|EmptySet _|InsertSet (_, _)|
+> UnionSet (_, _)|IsSubset (_, _)|IsMember (_, _)|Size _|EmptyStack _|
+> PushStack (_, _)|PopStack _|TopStack _|EmptyQueue _|AddQueue (_, _)|
+> RemoveQueue _|TopQueue _|EmptyHtbl (_, _)|InsertHtbl (_, _, _)|
+> LookupHtbl (_, _)|RemoveHtbl (_, _)|Debug _)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o lib/arith.cma lib/.arith.objs/byte/arith.cmo lib/.arith.objs/byte/arith__Ds.cmo lib/.arith.objs/byte/arith__Interp.cmo)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -24 -g -bin-annot -I lib/.utop/.utop.eobjs/byte -I /home/jsoiferm/.opam/default/lib/bytes -I /home/jsoiferm/.opam/default/lib/findlib -I /home/jsoiferm/.opam/default/lib/lambda-term -I /home/jsoiferm/.opam/default/lib/logs -I /home/jsoiferm/.opam/default/lib/lwt -I /home/jsoiferm/.opam/default/lib/lwt/unix -I /home/jsoiferm/.opam/default/lib/lwt_react -I /home/jsoiferm/.opam/default/lib/menhirLib -I /home/jsoiferm/.opam/default/lib/mew -I /home/jsoiferm/.opam/default/lib/mew_vi -I /home/jsoiferm/.opam/default/lib/ocplib-endian -I /home/jsoiferm/.opam/default/lib/ocplib-endian/bigstring -I /home/jsoiferm/.opam/default/lib/parser_plaf -I /home/jsoiferm/.opam/default/lib/react -I /home/jsoiferm/.opam/default/lib/result -I /home/jsoiferm/.opam/default/lib/trie -I /home/jsoiferm/.opam/default/lib/uchar -I /home/jsoiferm/.opam/default/lib/utop -I /home/jsoiferm/.opam/default/lib/uucp -I /home/jsoiferm/.opam/default/lib/uuseg -I /home/jsoiferm/.opam/default/lib/uutf -I /home/jsoiferm/.opam/default/lib/xdg -I /home/jsoiferm/.opam/default/lib/zed -I /usr/lib/ocaml/compiler-libs -I /usr/lib/ocaml/threads -I lib/.arith.objs/byte -no-alias-deps -o lib/.utop/.utop.eobjs/byte/dune__exe__Utop.cmo -c -impl lib/.utop/utop.ml-gen)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -w -24 -g -o lib/.utop/utop.bc /usr/lib/ocaml/compiler-libs/ocamlcommon.cma /usr/lib/ocaml/compiler-libs/ocamlbytecomp.cma /usr/lib/ocaml/compiler-libs/ocamltoplevel.cma /home/jsoiferm/.opam/default/lib/findlib/findlib.cma /home/jsoiferm/.opam/default/lib/findlib/findlib_top.cma /home/jsoiferm/.opam/default/lib/logs/logs.cma /home/jsoiferm/.opam/default/lib/lwt/lwt.cma /home/jsoiferm/.opam/default/lib/logs/logs_lwt.cma /usr/lib/ocaml/unix.cma /usr/lib/ocaml/bigarray.cma /home/jsoiferm/.opam/default/lib/ocplib-endian/ocplib_endian.cma /home/jsoiferm/.opam/default/lib/ocplib-endian/bigstring/ocplib_endian_bigstring.cma /usr/lib/ocaml/threads/threads.cma /home/jsoiferm/.opam/default/lib/lwt/unix/lwt_unix.cma -I /home/jsoiferm/.opam/default/lib/lwt/../stublibs /home/jsoiferm/.opam/default/lib/react/react.cma /home/jsoiferm/.opam/default/lib/lwt_react/lwt_react.cma /home/jsoiferm/.opam/default/lib/result/result.cma /home/jsoiferm/.opam/default/lib/uutf/uutf.cma /home/jsoiferm/.opam/default/lib/uucp/uucp.cma /home/jsoiferm/.opam/default/lib/uuseg/uuseg.cma /home/jsoiferm/.opam/default/lib/zed/zed.cma /home/jsoiferm/.opam/default/lib/trie/trie.cma /home/jsoiferm/.opam/default/lib/mew/mew.cma /home/jsoiferm/.opam/default/lib/mew_vi/mew_vi.cma /home/jsoiferm/.opam/default/lib/lambda-term/lambda_term.cma -I /home/jsoiferm/.opam/default/lib/lambda-term/../stublibs /home/jsoiferm/.opam/default/lib/xdg/xdg.cma -I /home/jsoiferm/.opam/default/lib/xdg/../stublibs /home/jsoiferm/.opam/default/lib/utop/uTop.cma /home/jsoiferm/.opam/default/lib/menhirLib/menhirLib.cma /home/jsoiferm/.opam/default/lib/parser_plaf/parser_plaf.cma lib/arith.cma lib/.utop/.utop.eobjs/byte/dune__exe__Utop.cmo -linkall -warn-error -31)
